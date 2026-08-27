@@ -4,10 +4,10 @@
 > *"Because saving the world from grid collapse takes more than hoping for the best—it demands real MPPT, honest math, and code that doesn't melt your MOSFETs."*
 
 ---
-```markdown
+
 ## 🧭 Architectural Overview
 The **Solarpunk Microgrid AG Router** is an industrial-grade power management and maximum power point tracking (MPPT) routing node built for off-grid greenhouses, agricultural microgrids, and anyone tired of commercial solar gear locking down their firmware.
-
+```markdown
 ┌────────────────────────────────────────────────────────┐
 │               Solar Photovoltaic Input                 │
 └───────────────────────────┬────────────────────────────┘
@@ -23,9 +23,7 @@ The **Solarpunk Microgrid AG Router** is an industrial-grade power management an
 ┌────────────────────────────────────────────────────────┐
 │     Teensy 4.1 ARM Cortex-M7 Core & C99 Registers      │
 └────────────────────────────────────────────────────────┘
-
 ```
-
 ---
 
 ## 📂 Repository Directory Architecture
