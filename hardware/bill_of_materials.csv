@@ -1,0 +1,11 @@
+Item,Component,Manufacturer,Part Number,Package,Quantity,Function
+1,Microcontroller Unit,Teensy,Teensy 4.1,DIP-Open,1,Core RTOS & High-Speed Telemetry Processing
+2,N-Channel Power MOSFET,Infineon,IRFB4110PBF,TO-220AB,2,High-Frequency DC-DC Synchronous Switching Stage
+3,Gate Driver IC,Microchip Technology,TC4420COA,SOIC-8,1,Low-Side MOSFET Gate Driver & Shoot-Through Protection
+4,Current Shunt Monitor,Texas Instruments,INA219AIDCNR,SOT-23-8,2,Precision Bidirectional Bus & Shunt Current Monitoring
+5,DC-DC Buck Converter,Traco Power,TSR 1-2450,SIP-3,1,Isolated 5V Logic Rail Power Regulation Supply
+6,Transient Voltage Suppressor,Littelfuse,5SMC30A,DO-214AB,2,Input Photovoltaic Voltage Surge Clamping
+7,Solid-State Relay Module,Crydom,D2425,Panel Mount,2,High-Side DC Nanogrid Load Disconnect Switching
+8,Differential Transceiver,Analog Devices,MAX485ESA+,SOIC-8,1,Isolated Industrial RS485 Modbus RTU Bus Transceiver
+9,Temperature Sensor,Maxim Integrated,DS18B20,TO-92,2,Thermal Monitoring of Power Stage MOSFET Heatsinks
+10,Schottky Barrier Diode,Vishay,VS-MBR20100PBF,TO-220AC,2,Reverse Polarity and Freewheeling Inductive Clamp
