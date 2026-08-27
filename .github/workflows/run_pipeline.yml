@@ -1,0 +1,55 @@
+name: Microgrid Industrial CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build_and_verify:
+    name: Build Firmware & Validate Pipeline
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository Source
+        uses: actions/checkout@v4
+
+      - name: Set up Python Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install System Dependencies & PlatformIO Core
+        run: |
+          python -m pip install --upgrade pip
+          pip install platformio
+          pio --version
+
+      - name: Execute Pre-Build Environment Validation Hook
+        run: |
+          python scripts/validate_environment.py
+
+      - name: Compile Teensy 4.1 Production Target
+        working-directory: ./firmware
+        run: |
+          pio run -e teensy41_prod
+
+      - name: Execute Native Unity Unit Tests & Simulation Suite
+        working-directory: ./firmware
+        run: |
+          pio test -e native_simulation
+
+      - name: Run Hardware Telemetry Verification Script Simulation
+        run: |
+          python utilities/hardware_ping_test.py --pings 3 --diagnostic-mode --csv-export
+
+      - name: Archive Verification Artifacts & Logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: microgrid-build-logs-and-telemetry
+          path: |
+            hardware_verification_runtime.log
+            hardware_telemetry_audit.csv
+            build_validation.log
