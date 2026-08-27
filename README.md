@@ -1,4 +1,3 @@
-```markdown
 # ⚡ Solarpunk Microgrid AG Router
 ## Repository: [t4rxnn-devel/solarpunk-microgrid-ag-router](https://github.com/t4rxnn-devel/solarpunk-microgrid-ag-router)
 
