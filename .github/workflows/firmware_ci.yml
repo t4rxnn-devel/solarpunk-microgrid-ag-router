@@ -1,0 +1,41 @@
+name: Firmware CI / CD Build Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-firmware:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install PlatformIO Core
+      run: |
+        python -m pip install --upgrade pip
+        pip install platformio
+
+    - name: Run PlatformIO Build Check (Teensy 4.1 Production Node)
+      working-directory: ./firmware
+      run: pio run -e teensy41_prod
+
+    - name: Run PlatformIO Build Check (ESP32-S3 Wireless Edge)
+      working-directory: ./firmware
+      run: pio run -e esp32s3_wireless
+
+    - name: Run PlatformIO Build Check (STM32F407 Industrial)
+      working-directory: ./firmware
+      run: pio run -e stm32f407_industrial
+
+    - name: Execute Native Unit Tests & Simulation Harness
+      working-directory: ./firmware
+      run: pio test -e native_simulation
